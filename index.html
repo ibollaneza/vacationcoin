@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoQuest Token</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: black;
+            color: lime;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        .input-container {
+            margin-top: 20px;
+        }
+
+        input {
+            font-family: monospace;
+            background-color: black;
+            color: lime;
+            border: 1px solid lime;
+            padding: 10px;
+            width: 300px;
+        }
+
+        button {
+            font-family: monospace;
+            background-color: lime;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CryptoQuest Token</h1>
+    <p>Enter your Solana wallet to unlock your 15% travel discount code!</p>
+
+    <div class="input-container">
+        <input type="text" id="wallet" placeholder="Enter your Solana wallet">
+        <button onclick="verifyWallet()">Submit</button>
+    </div>
+
+    <div id="loading" class="loading">Searching for your discount code...</div>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        function verifyWallet() {
+            const walletInput = document.getElementById('wallet').value;
+            const walletPattern = /^[a-zA-Z0-9]{32,44}$/; // Typical Solana wallet format
+
+            document.getElementById('result').innerHTML = "";
+            document.getElementById('loading').style.display = "block";
+
+            setTimeout(() => {
+                if (walletPattern.test(walletInput)) {
+                    document.getElementById('loading').style.display = "none";
+                    const randomCode = generateDiscountCode();
+                    document.getElementById('result').innerHTML = 
+                        `<p>Wallet verified! Your discount code: <strong>${randomCode}</strong></p>
+                        <p>Guess the travel website where this code works:</p>
+                        <ul>
+                            <li><a href="#">www.sunnygetaways.com</a></li>
+                            <li><a href="#">www.jetsetjourneys.com</a></li>
+                            <li><a href="#">www.exploreworldwide.com</a></li>
+                            <li><a href="#">www.paradisetravel.com</a></li>
+                            <li><a href="#">www.adventureescape.com</a></li>
+                            <li><a href="#">www.triptastic.com</a></li>
+                            <li><a href="#">www.flyingdreams.com</a></li>
+                            <li><a href="#">www.budgethorizons.com</a></li>
+                            <li><a href="#">www.luxurygetaway.com</a></li>
+                            <li><a href="#">www.globaltrails.com</a></li>
+                        </ul>`;
+                } else {
+                    document.getElementById('loading').style.display = "none";
+                    document.getElementById('result').innerHTML = 
+                        "<p style='color: red;'>Invalid wallet address. Please try again.</p>";
+                }
+            }, 3000); // Simulate loading time
+        }
+
+        function generateDiscountCode() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 8; i++) {
+                code += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return TRVL-${code};
+        }
+    </script>
+</body>
+</html>
