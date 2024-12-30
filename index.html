@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoQuest Token</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
         body {
-            font-family: monospace;
+            font-family: 'Bebas Neue', sans-serif;
             background-color: black;
             color: lime;
             display: flex;
@@ -26,7 +28,7 @@
         }
 
         input {
-            font-family: monospace;
+            font-family: 'Bebas Neue', sans-serif;
             background-color: black;
             color: lime;
             border: 1px solid lime;
@@ -35,7 +37,7 @@
         }
 
         button {
-            font-family: monospace;
+            font-family: 'Bebas Neue', sans-serif;
             background-color: lime;
             color: black;
             border: none;
@@ -113,7 +115,7 @@
             for (let i = 0; i < 8; i++) {
                 code += characters.charAt(Math.floor(Math.random() * characters.length));
             }
-            return TRVL-${code};
+            return `TRVL-${code}`;
         }
     </script>
 </body>
