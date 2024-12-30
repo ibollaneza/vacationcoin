@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoQuest Token</title>
+    <title>StayCoin</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
         body {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: monospace;
             background-color: black;
             color: lime;
             display: flex;
@@ -28,7 +26,7 @@
         }
 
         input {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: monospace;
             background-color: black;
             color: lime;
             border: 1px solid lime;
@@ -37,7 +35,7 @@
         }
 
         button {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: monospace;
             background-color: lime;
             color: black;
             border: none;
@@ -62,15 +60,15 @@
     </style>
 </head>
 <body>
-    <h1>CryptoQuest Token</h1>
-    <p>Enter your Solana wallet to unlock your 15% travel discount code!</p>
+    <h1>StayCoin</h1>
+    <p>Enter your Solana wallet to unlock your 15% booking discount code!</p>
 
     <div class="input-container">
         <input type="text" id="wallet" placeholder="Enter your Solana wallet">
         <button onclick="verifyWallet()">Submit</button>
     </div>
 
-    <div id="loading" class="loading">Searching for your discount code...</div>
+    <div id="loading" class="loading">Finding your discount code...</div>
 
     <div id="result" class="result"></div>
 
@@ -88,35 +86,8 @@
                     const randomCode = generateDiscountCode();
                     document.getElementById('result').innerHTML = 
                         `<p>Wallet verified! Your discount code: <strong>${randomCode}</strong></p>
-                        <p>Guess the travel website where this code works:</p>
+                        <p>Guess the booking site where this code works:</p>
                         <ul>
-                            <li><a href="#">www.sunnygetaways.com</a></li>
-                            <li><a href="#">www.jetsetjourneys.com</a></li>
-                            <li><a href="#">www.exploreworldwide.com</a></li>
-                            <li><a href="#">www.paradisetravel.com</a></li>
-                            <li><a href="#">www.adventureescape.com</a></li>
-                            <li><a href="#">www.triptastic.com</a></li>
-                            <li><a href="#">www.flyingdreams.com</a></li>
-                            <li><a href="#">www.budgethorizons.com</a></li>
-                            <li><a href="#">www.luxurygetaway.com</a></li>
-                            <li><a href="#">www.globaltrails.com</a></li>
-                        </ul>`;
-                } else {
-                    document.getElementById('loading').style.display = "none";
-                    document.getElementById('result').innerHTML = 
-                        "<p style='color: red;'>Invalid wallet address. Please try again.</p>";
-                }
-            }, 3000); // Simulate loading time
-        }
-
-        function generateDiscountCode() {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let code = '';
-            for (let i = 0; i < 8; i++) {
-                code += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return `TRVL-${code}`;
-        }
-    </script>
-</body>
-</html>
+                            <li><a href="#">www.stayfinder.com</a></li>
+                            <li><a href="#">www.rentalhorizon.com</a></li>
+                            <li><a href="#">www.bnbdeals.com</a></l
